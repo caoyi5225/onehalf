@@ -32,6 +32,9 @@ let s:yellow_g = '#c18401'
 let s:yellow_c = 136
 let s:red_g = '#e45649'
 let s:red_c = 167
+let s:purple_g = '#a626a4'
+let s:purple_c = '127'
+
 
 
 let g:airline#themes#onehalflight#palette = {}
@@ -53,30 +56,33 @@ let g:airline#themes#onehalflight#palette.normal_modified =
 let s:insert_outer = [s:light_g, s:blue_g, s:light_c, s:blue_c]
 let s:insert_middle = s:normal_middle
 let s:insert_inner = [s:blue_g, s:light_g, s:blue_c, s:light_c]
+let s:insert_inner_modified = [s:yellow_g, s:med_hi_g, s:yellow_c, s:med_hi_c]
 let g:airline#themes#onehalflight#palette.insert = 
-    \ airline#themes#generate_color_map(s:insert_outer, s:insert_middle, s:insert_inner)
+  \ airline#themes#generate_color_map(s:insert_outer, s:insert_middle, s:insert_inner)
 let g:airline#themes#onehalflight#palette.insert_modified = 
-    \ copy(g:airline#themes#onehalflight#palette.normal_modified)
+  \ airline#themes#generate_color_map(s:insert_outer, s:insert_middle, s:insert_inner_modified)
 
 
 " Replace mode
 let s:replace_outer = [s:light_g, s:red_g, s:light_c, s:red_c]
 let s:replace_middle = s:normal_middle
 let s:replace_inner = [s:red_g, s:light_g, s:red_c, s:light_c]
+let s:replace_inner_modified = [s:yellow_g, s:med_hi_g, s:yellow_c, s:med_hi_c]
 let g:airline#themes#onehalflight#palette.replace =
     \ airline#themes#generate_color_map(s:replace_outer, s:replace_middle, s:replace_inner)
 let g:airline#themes#onehalflight#palette.replace_modified = 
-    \ copy(g:airline#themes#onehalflight#palette.insert_modified)
+    \ airline#themes#generate_color_map(s:replace_outer, s:replace_middle, s:replace_inner_modified)
 
 
 " Visual mode
-let s:visual_outer = [s:light_g, s:yellow_g, s:light_c, s:yellow_c]
+let s:visual_outer = [s:light_g, s:purple_g, s:light_c, s:yellow_c]
 let s:visual_middle = s:normal_middle
-let s:visual_inner = [s:yellow_g, s:light_g, s:yellow_c, s:light_c]
+let s:visual_inner = [s:purple_g, s:light_g, s:purple_c, s:light_c]
+let s:visual_inner_modified = [s:yellow_g, s:med_hi_g, s:yellow_c, s:med_hi_c]
 let g:airline#themes#onehalflight#palette.visual = 
     \ airline#themes#generate_color_map(s:visual_outer, s:visual_middle, s:visual_inner)
 let g:airline#themes#onehalflight#palette.visual_modified = 
-    \ copy(g:airline#themes#onehalflight#palette.insert_modified)
+    \ airline#themes#generate_color_map(s:visual_outer, s:visual_middle, s:visual_inner_modified)
 
 
 " Inactive window
